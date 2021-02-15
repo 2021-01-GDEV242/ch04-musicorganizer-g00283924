@@ -68,6 +68,18 @@ public class MusicOrganizer
        playTrack(randomTrack.nextInt(tracks.size()));
     }
     
+    public void Shuffle()
+    {
+        int n=4;
+        while(tracks.size() > 0) {
+            int index = randomTrack.nextInt(n);
+            player.playSample(tracks.get(index).getFilename());
+            tracks.remove(index);
+            n--;
+        }
+        readLibrary(".../audio");
+    }
+    
     /**
      * Return the number of tracks in the collection.
      * @return The number of tracks in the collection.
